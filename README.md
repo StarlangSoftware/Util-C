@@ -66,15 +66,15 @@ Aralık veri yapısını tutmak için Interval dosyası
 
 1 ve 4 aralığı eklemek için
 
-	a.add(1, 4);
+	add_to_interval(a, 1, 4);
 
 i. aralığın başını getirmek için (yukarıdaki örnekteki 1 gibi)
 
-	int getFirst(int index)
+	int get_first_of_interval(Interval_ptr interval, int index)
 
 i. aralığın sonunu getirmek için (yukarıdaki örnekteki 4 gibi)
 
-	int getLast(int index)
+	int get_last_of_interval(Interval_ptr interval, int index)
 
 ## Subset 
 
@@ -82,19 +82,19 @@ Altküme tanımlamak ve tüm altkümelere ulaşmak için Subset ve SubsetFromLis
 
 Subset veri yapısını tanımlamak için
 
-	Subset(int rangeStart, int rangeEnd, int elementCount)
+	Subset_ptr create_subset(int range_start, int range_end, int element_count)
 
-Burada elemenCount elemanlı, elemanları rangeStart ile rangeEnd arasında değerler alabilen
+Burada element_count elemanlı, elemanları range_start ile range_end arasında değerler alabilen
 tüm altkümeleri gezen bir yapıdan bahsediyoruz. Örneğin
 
-Subset(1, 4, 2), bize iki elemanlı elemanlarını 1 ile 4 arasından gelen tüm alt kümeleri 
+create_subset(1, 4, 2), bize iki elemanlı elemanlarını 1 ile 4 arasından gelen tüm alt kümeleri 
 seçmek için kullanılan bir constructor'dır. Tüm altkümeleri elde etmek için
 
-	a = Subset(1, 4, 2);
+	a = create_subset(1, 4, 2);
 	do{
-		subset = a.get();
+		subset = a->set;
 		....
-	}while(a.next());
+	}while(a.next_subset());
 
 Burada subset sırasıyla {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4}, {3, 4} altkümelerini gezer. 
 
@@ -104,20 +104,20 @@ Altküme tanımlamak ve tüm altkümelere ulaşmak için Subset ve SubsetFromLis
 
 SubsetFromList veri yapısını kullanmak için
 
-	SubsetFromList(int[] list, int elementCount)
+	Subset_from_list_ptr create_subset_from_list(int* list, int list_size, int element_count);
 
 Burada elementCount elemanlı, elemanları list listesinden çekilen değerler olan ve tüm 
 altkümeleri gezen bir yapıdan bahsediyoruz. Örneğin
 
-SubsetFromList({1, 2, 3, 4}, 3), bize üç elemanlı elemanlarını {1, 2, 3, 4} listesinden 
+create_subset_from_list({1, 2, 3, 4}, 4, 3), bize üç elemanlı elemanlarını {1, 2, 3, 4} listesinden 
 seçen ve tüm alt kümeleri gezmekte kullanılan bir constructor'dır. Tüm altkümeleri elde 
 etmek için
 
-	a = new SubsetFromList({1, 2, 3, 4}, 3);
+	a = create_subset_from_list({1, 2, 3, 4}, 4, 3);
 	do{
-		subset = a.get();
+		subset = a->set;
 		....
-	}while(a.next());
+	}while(a.next_subset_from_list());
 
 Burada SubsetFromList sırasıyla {1, 2, 3}, {1, 2, 4}, {1, 3, 4}, {2, 3, 4} altkümelerini 
 gezer. 
@@ -126,18 +126,18 @@ gezer.
 
 Permütasyon tanımlamak ve tüm permütasyonlara ulaşmak için Permutation sınıfı
 
-	Permutation(n)
+	Permutation_ptr create_permutation(int n)
 
 Burada 0 ile n - 1 arasındaki değerlerin tüm olası n'li permütasyonlarını gezen bir 
 yapıdan bahsediyoruz. Örneğin
 
-Permutation(5), bize değerleri 0 ile 4 arasında olan tüm 5'li permütasyonları gezmekte 
+create_permutation(5), bize değerleri 0 ile 4 arasında olan tüm 5'li permütasyonları gezmekte 
 kullanılan bir constructor'dır. Tüm permütasyonları elde etmek için
 
-	a = new Permutation(5)
+	a = create_permutation(5)
 	do{
-		permutation = a.get();
+		permutation = a.n;
 		...
-	}while(a.next());
+	}while(a.next_permutation());
 
 Burada Permutation sırasıyla {0, 1, 2, 3, 4}, {0, 1, 2, 4, 3} gibi permütasyonları gezer.
