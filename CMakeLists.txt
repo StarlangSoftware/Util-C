@@ -17,3 +17,5 @@ add_executable(SubsetTest src/Tuple.c src/Tuple.h src/Swap.c src/Swap.h src/Inte
 target_link_libraries(SubsetTest ${CONAN_LIBS})
 add_executable(SubsetFromListTest src/Tuple.c src/Tuple.h src/Swap.c src/Swap.h src/Interval.c src/Interval.h src/Permutation.c src/Permutation.h src/RandomArray.c src/RandomArray.h src/Subset.c src/Subset.h src/SubsetFromList.c src/SubsetFromList.h Test/SubsetFromListTest.c)
 target_link_libraries(SubsetFromListTest ${CONAN_LIBS})
+add_executable(StringTest src/Tuple.c src/Tuple.h src/Swap.c src/Swap.h src/Interval.c src/Interval.h src/Permutation.c src/Permutation.h src/RandomArray.c src/RandomArray.h src/Subset.c src/Subset.h src/SubsetFromList.c src/SubsetFromList.h src/StringUtils.c src/StringUtils.h Test/StringTest.c)
+target_link_libraries(StringTest ${CONAN_LIBS})

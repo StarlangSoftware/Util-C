@@ -9,5 +9,7 @@
 
 char* str_copy(char* dst, const char* src);
 Array_list_ptr str_split(char* s, char ch);
+char* uppercase_en(char* src);
+char* lowercase_en(char *src);
 
 #endif //UTIL_STRINGUTILS_H

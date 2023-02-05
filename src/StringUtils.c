@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "StringUtils.h"
 
 char *str_copy(char *dst, const char *src) {
@@ -37,4 +38,28 @@ Array_list_ptr str_split(char *s, char ch) {
         array_list_add(result, substring);
     }
     return result;
+}
+
+char *uppercase_en(char *src) {
+    char* result = malloc(strlen(src) + 1);
+    char* t = result;
+    while (*src){
+        *result = toupper(*src);
+        result++;
+        src++;
+    }
+    *result = '\0';
+    return t;
+}
+
+char *lowercase_en(char *src) {
+    char* result = malloc(strlen(src) + 1);
+    char* t = result;
+    while (*src){
+        *result = tolower(*src);
+        result++;
+        src++;
+    }
+    *result = '\0';
+    return t;
 }
