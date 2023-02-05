@@ -63,3 +63,10 @@ char *lowercase_en(char *src) {
     *result = '\0';
     return t;
 }
+
+char *str_concat(char *src1, char *src2) {
+    char* result = malloc(strlen(src1) + strlen(src2) + 1);
+    result = strcpy(result, src1);
+    result = strcat(result, src2);
+    return result;
+}

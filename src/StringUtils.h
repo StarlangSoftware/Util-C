@@ -8,6 +8,7 @@
 #include <ArrayList.h>
 
 char* str_copy(char* dst, const char* src);
+char* str_concat(char* src1, char* src2);
 Array_list_ptr str_split(char* s, char ch);
 char* uppercase_en(char* src);
 char* lowercase_en(char *src);

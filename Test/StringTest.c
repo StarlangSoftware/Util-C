@@ -23,7 +23,15 @@ void test_lowercase(){
     free(upper);
 }
 
+void test_concat(){
+    char* result = str_concat("ali", "veli");
+    if (strcmp(result, "aliveli") != 0){
+        printf("Test Failed in test_lowercase\n");
+    }
+}
+
 int main(){
     test_uppercase();
     test_lowercase();
+    test_concat();
 }
