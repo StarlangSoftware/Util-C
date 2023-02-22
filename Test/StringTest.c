@@ -30,8 +30,22 @@ void test_concat(){
     }
 }
 
+void test_string(){
+    String_ptr s = create_string();
+    string_append(s, "aliveli");
+    printf("%s\n", s->s);
+    string_append(s, "aliveli");
+    printf("%s\n", s->s);
+    string_append(s, "aliveli");
+    printf("%s\n", s->s);
+    string_append_char(s, 'a');
+    printf("%s\n", s->s);
+    free_string(s);
+}
+
 int main(){
     test_uppercase();
     test_lowercase();
     test_concat();
+    test_string();
 }
