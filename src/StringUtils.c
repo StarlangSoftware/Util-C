@@ -112,3 +112,9 @@ String_ptr create_string2(char *s) {
     string_append(result, s);
     return  result;
 }
+
+void clean_string(String_ptr string) {
+    free(string->s);
+    string->s = calloc(5, sizeof(char));
+    string->max_size = 5;
+}
