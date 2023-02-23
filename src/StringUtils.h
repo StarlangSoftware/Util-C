@@ -17,7 +17,7 @@ typedef String* String_ptr;
 
 String_ptr create_string();
 String_ptr create_string2(char* s);
-void free_string(String_ptr string);
+void free_string_ptr(String_ptr string);
 void clean_string(String_ptr string);
 void string_append(String_ptr string, char* src);
 void string_append_char(String_ptr string, char ch);

@@ -78,7 +78,7 @@ String_ptr create_string() {
     return result;
 }
 
-void free_string(String_ptr string) {
+void free_string_ptr(String_ptr string) {
     free(string->s);
     free(string);
 }

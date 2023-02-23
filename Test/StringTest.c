@@ -40,7 +40,7 @@ void test_string(){
     printf("%s\n", s->s);
     string_append_char(s, 'a');
     printf("%s\n", s->s);
-    free_string(s);
+    free_string_ptr(s);
 }
 
 int main(){
