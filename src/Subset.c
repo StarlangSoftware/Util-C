@@ -20,7 +20,7 @@ Subset_ptr create_subset(int range_start, int range_end, int element_count) {
     result->range_end = range_end;
     result->element_count = element_count;
     result->set = malloc(element_count * sizeof(int));
-    for (int i = 0; i < element_count; i++){
+    for (int i = 0; i < element_count; i++) {
         result->set[i] = range_start + i;
     }
     return result;
@@ -40,14 +40,14 @@ int next_subset(Subset_ptr subset) {
     int i, j;
     for (i = subset->element_count - 1; i > -1; i--) {
         subset->set[i]++;
-        if (subset->set[i] <= subset->range_end - subset->element_count + i + 1){
+        if (subset->set[i] <= subset->range_end - subset->element_count + i + 1) {
             break;
         }
     }
-    if (i == -1){
+    if (i == -1) {
         return 0;
     }
-    for (j = i + 1; j < subset->element_count; j++){
+    for (j = i + 1; j < subset->element_count; j++) {
         subset->set[j] = subset->set[j - 1] + 1;
     }
     return 1;

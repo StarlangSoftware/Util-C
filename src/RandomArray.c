@@ -15,7 +15,7 @@
 double *normalized_array(int item_count) {
     int i;
     double sum = 0.0;
-    double* array = malloc(item_count * sizeof(double));
+    double *array = malloc(item_count * sizeof(double));
     for (i = 0; i < item_count; i++) {
         array[i] = random() / (RAND_MAX + 1.0);
         sum += array[i];
@@ -29,8 +29,8 @@ double *normalized_array(int item_count) {
 Array_list_ptr indexArray(int item_count, int seed) {
     srand(seed);
     Array_list_ptr random_array = create_array_list();
-    for (int i = 0; i < item_count; i++){
-        int* number = malloc(sizeof(int));
+    for (int i = 0; i < item_count; i++) {
+        int *number = malloc(sizeof(int));
         *number = i;
         array_list_add(random_array, number);
     }

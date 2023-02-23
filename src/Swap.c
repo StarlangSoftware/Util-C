@@ -12,7 +12,7 @@
  * @param i     first index to swap.
  * @param j     second index to change.
  */
-void swap_double(double* array, int i, int j){
+void swap_double(double *array, int i, int j) {
     double t = array[i];
     array[i] = array[j];
     array[j] = t;
@@ -26,7 +26,7 @@ void swap_double(double* array, int i, int j){
  * @param i     first index to swap.
  * @param j     second index to change.
  */
-void swap_int(int* array, int i, int j){
+void swap_int(int *array, int i, int j) {
     int t = array[i];
     array[i] = array[j];
     array[j] = t;

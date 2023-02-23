@@ -7,25 +7,36 @@
 
 #include <ArrayList.h>
 
-struct string{
-    char* s;
+struct string {
+    char *s;
     int max_size;
 };
 
 typedef struct string String;
-typedef String* String_ptr;
+typedef String *String_ptr;
 
 String_ptr create_string();
-String_ptr create_string2(char* s);
+
+String_ptr create_string2(char *s);
+
 void free_string_ptr(String_ptr string);
+
 void clean_string(String_ptr string);
-void string_append(String_ptr string, char* src);
+
+void string_append(String_ptr string, char *src);
+
 void string_append_char(String_ptr string, char ch);
-char* string_copy(String_ptr string);
-char* str_copy(char* dst, const char* src);
-char* str_concat(char* src1, char* src2);
-Array_list_ptr str_split(char* s, char ch);
-char* uppercase_en(char* src);
-char* lowercase_en(char *src);
+
+char *string_copy(String_ptr string);
+
+char *str_copy(char *dst, const char *src);
+
+char *str_concat(char *src1, char *src2);
+
+Array_list_ptr str_split(char *s, char ch);
+
+char *uppercase_en(char *src);
+
+char *lowercase_en(char *src);
 
 #endif //UTIL_STRINGUTILS_H

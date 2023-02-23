@@ -5,15 +5,16 @@
 #ifndef UTIL_TUPLE_H
 #define UTIL_TUPLE_H
 
-struct tuple{
+struct tuple {
     int first;
     int last;
 };
 
 typedef struct tuple Tuple;
-typedef Tuple* Tuple_ptr;
+typedef Tuple *Tuple_ptr;
 
 Tuple_ptr create_tuple(int first, int last);
+
 void free_tuple(Tuple_ptr tuple);
 
 #endif //UTIL_TUPLE_H

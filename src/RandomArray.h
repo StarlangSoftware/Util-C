@@ -7,7 +7,8 @@
 
 #include <ArrayList.h>
 
-double* normalized_array(int item_count);
+double *normalized_array(int item_count);
+
 Array_list_ptr indexArray(int item_count, int seed);
 
 #endif //UTIL_RANDOMARRAY_H

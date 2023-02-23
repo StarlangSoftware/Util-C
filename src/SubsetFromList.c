@@ -45,11 +45,11 @@ int next_subset_from_list(Subset_from_list_ptr subset) {
     int i, j;
     for (i = subset->element_count - 1; i > -1; i--) {
         subset->index_list[i]++;
-        if (subset->index_list[i] < subset->list_size - subset->element_count + i + 1){
+        if (subset->index_list[i] < subset->list_size - subset->element_count + i + 1) {
             break;
         }
     }
-    if (i == -1){
+    if (i == -1) {
         return 0;
     }
     subset->set[i] = subset->element_list[subset->index_list[i]];

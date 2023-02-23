@@ -5,7 +5,8 @@
 #ifndef UTIL_SWAP_H
 #define UTIL_SWAP_H
 
-void swap_double(double* array, int i, int j);
-void swap_int(int* array, int i, int j);
+void swap_double(double *array, int i, int j);
+
+void swap_int(int *array, int i, int j);
 
 #endif //UTIL_SWAP_H

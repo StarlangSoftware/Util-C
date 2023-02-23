@@ -16,15 +16,15 @@ char *str_copy(char *dst, const char *src) {
 Array_list_ptr str_split(char *s, char ch) {
     char *substring;
     Array_list_ptr result = create_array_list();
-    char* buffer = malloc(strlen(s) + 1);
+    char *buffer = malloc(strlen(s) + 1);
     int j = 0;
-    while (*s){
-        if (*s != ch){
+    while (*s) {
+        if (*s != ch) {
             buffer[j] = *s;
             j++;
         } else {
             buffer[j] = '\0';
-            if (j != 0){
+            if (j != 0) {
                 substring = str_copy(substring, buffer);
                 array_list_add(result, substring);
             }
@@ -33,7 +33,7 @@ Array_list_ptr str_split(char *s, char ch) {
         s++;
     }
     buffer[j] = '\0';
-    if (j != 0){
+    if (j != 0) {
         substring = str_copy(substring, buffer);
         array_list_add(result, substring);
     }
@@ -41,9 +41,9 @@ Array_list_ptr str_split(char *s, char ch) {
 }
 
 char *uppercase_en(char *src) {
-    char* result = malloc(strlen(src) + 1);
-    char* t = result;
-    while (*src){
+    char *result = malloc(strlen(src) + 1);
+    char *t = result;
+    while (*src) {
         *result = toupper(*src);
         result++;
         src++;
@@ -53,9 +53,9 @@ char *uppercase_en(char *src) {
 }
 
 char *lowercase_en(char *src) {
-    char* result = malloc(strlen(src) + 1);
-    char* t = result;
-    while (*src){
+    char *result = malloc(strlen(src) + 1);
+    char *t = result;
+    while (*src) {
         *result = tolower(*src);
         result++;
         src++;
@@ -65,7 +65,7 @@ char *lowercase_en(char *src) {
 }
 
 char *str_concat(char *src1, char *src2) {
-    char* result = malloc(strlen(src1) + strlen(src2) + 1);
+    char *result = malloc(strlen(src1) + strlen(src2) + 1);
     result = strcpy(result, src1);
     result = strcat(result, src2);
     return result;
@@ -84,7 +84,7 @@ void free_string_ptr(String_ptr string) {
 }
 
 void string_append(String_ptr string, char *src) {
-    while (strlen(string->s) + strlen(src) >= string->max_size){
+    while (strlen(string->s) + strlen(src) >= string->max_size) {
         string->max_size *= 2;
         string->s = realloc(string->s, string->max_size * sizeof(char));
     }
@@ -92,13 +92,13 @@ void string_append(String_ptr string, char *src) {
 }
 
 char *string_copy(String_ptr string) {
-    char* result = NULL;
+    char *result = NULL;
     return str_copy(result, string->s);
 }
 
 void string_append_char(String_ptr string, char ch) {
     int length;
-    if (strlen(string->s) + 1 >= string->max_size){
+    if (strlen(string->s) + 1 >= string->max_size) {
         string->max_size *= 2;
         string->s = realloc(string->s, string->max_size * sizeof(char));
     }
@@ -110,7 +110,7 @@ void string_append_char(String_ptr string, char ch) {
 String_ptr create_string2(char *s) {
     String_ptr result = create_string();
     string_append(result, s);
-    return  result;
+    return result;
 }
 
 void clean_string(String_ptr string) {
