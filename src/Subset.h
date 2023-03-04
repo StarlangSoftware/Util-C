@@ -5,6 +5,8 @@
 #ifndef UTIL_SUBSET_H
 #define UTIL_SUBSET_H
 
+#include <stdbool.h>
+
 struct subset {
     int *set;
     int element_count;
@@ -18,6 +20,6 @@ Subset_ptr create_subset(int range_start, int range_end, int element_count);
 
 void free_subset(Subset_ptr subset);
 
-int next_subset(Subset_ptr subset);
+bool next_subset(Subset_ptr subset);
 
 #endif //UTIL_SUBSET_H

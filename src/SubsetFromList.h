@@ -5,6 +5,8 @@
 #ifndef UTIL_SUBSETFROMLIST_H
 #define UTIL_SUBSETFROMLIST_H
 
+#include <stdbool.h>
+
 struct subset_from_list {
     int *set;
     int element_count;
@@ -20,6 +22,6 @@ Subset_from_list_ptr create_subset_from_list(int *list, int list_size, int eleme
 
 void free_subset_from_list(Subset_from_list_ptr subset);
 
-int next_subset_from_list(Subset_from_list_ptr subset);
+bool next_subset_from_list(Subset_from_list_ptr subset);
 
 #endif //UTIL_SUBSETFROMLIST_H

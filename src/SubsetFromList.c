@@ -41,7 +41,7 @@ void free_subset_from_list(Subset_from_list_ptr subset) {
  *
  * @return true if next subset generation from list is possible, false otherwise.
  */
-int next_subset_from_list(Subset_from_list_ptr subset) {
+bool next_subset_from_list(Subset_from_list_ptr subset) {
     int i, j;
     for (i = subset->element_count - 1; i > -1; i--) {
         subset->index_list[i]++;
@@ -50,12 +50,12 @@ int next_subset_from_list(Subset_from_list_ptr subset) {
         }
     }
     if (i == -1) {
-        return 0;
+        return false;
     }
     subset->set[i] = subset->element_list[subset->index_list[i]];
     for (j = i + 1; j < subset->element_count; j++) {
         subset->index_list[j] = subset->index_list[j - 1] + 1;
         subset->set[j] = subset->element_list[subset->index_list[j]];
     }
-    return 1;
+    return true;
 }

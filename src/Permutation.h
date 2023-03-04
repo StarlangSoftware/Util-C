@@ -5,6 +5,8 @@
 #ifndef UTIL_PERMUTATION_H
 #define UTIL_PERMUTATION_H
 
+#include <stdbool.h>
+
 struct permutation {
     int n;
     int *a;
@@ -17,6 +19,6 @@ Permutation_ptr create_permutation(int n);
 
 void free_permutation(Permutation_ptr permutation);
 
-int next_permutation(Permutation_ptr permutation);
+bool next_permutation(Permutation_ptr permutation);
 
 #endif //UTIL_PERMUTATION_H

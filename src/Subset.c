@@ -36,7 +36,7 @@ void free_subset(Subset_ptr subset) {
  *
  * @return true if next subset generation is possible, false otherwise.
  */
-int next_subset(Subset_ptr subset) {
+bool next_subset(Subset_ptr subset) {
     int i, j;
     for (i = subset->element_count - 1; i > -1; i--) {
         subset->set[i]++;
@@ -45,10 +45,10 @@ int next_subset(Subset_ptr subset) {
         }
     }
     if (i == -1) {
-        return 0;
+        return false;
     }
     for (j = i + 1; j < subset->element_count; j++) {
         subset->set[j] = subset->set[j - 1] + 1;
     }
-    return 1;
+    return true;
 }

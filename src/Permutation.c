@@ -34,14 +34,14 @@ void free_permutation(Permutation_ptr permutation) {
  * @param permutation Permutation
  * @return true if next permutation is possible, false otherwise.
  */
-int next_permutation(Permutation_ptr permutation) {
+bool next_permutation(Permutation_ptr permutation) {
     int i = permutation->n - 2;
     int j, k;
     while (i >= 0 && permutation->a[i] >= permutation->a[i + 1]) {
         i--;
     }
     if (i == -1) {
-        return 0;
+        return false;
     }
     j = permutation->n - 1;
     while (permutation->a[i] >= permutation->a[j]) {
@@ -55,5 +55,5 @@ int next_permutation(Permutation_ptr permutation) {
         k++;
         j--;
     }
-    return 1;
+    return true;
 }

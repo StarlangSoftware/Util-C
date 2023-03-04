@@ -25,6 +25,8 @@ void clean_string(String_ptr string);
 
 void string_append(String_ptr string, char *src);
 
+void string_append_s(String_ptr string, String_ptr src);
+
 void string_append_char(String_ptr string, char ch);
 
 char *string_copy(String_ptr string);
