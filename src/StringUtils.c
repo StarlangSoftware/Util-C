@@ -118,3 +118,11 @@ void clean_string(String_ptr string) {
     string->s = calloc(5, sizeof(char));
     string->max_size = 5;
 }
+
+void string_append_s(String_ptr string, String_ptr src) {
+    while (strlen(string->s) + strlen(src->s) >= string->max_size) {
+        string->max_size *= 2;
+        string->s = realloc(string->s, string->max_size * sizeof(char));
+    }
+    strcat(string->s, src->s);
+}
