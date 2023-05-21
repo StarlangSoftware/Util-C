@@ -29,16 +29,16 @@ void string_append_s(String_ptr string, String_ptr src);
 
 void string_append_char(String_ptr string, char ch);
 
-char *string_copy(String_ptr string);
+char *string_copy(const String* string);
 
 char *str_copy(char *dst, const char *src);
 
-char *str_concat(char *src1, char *src2);
+char *str_concat(const char *src1, const char *src2);
 
-Array_list_ptr str_split(char *s, char ch);
+Array_list_ptr str_split(const char *s, char ch);
 
-char *uppercase_en(char *src);
+char *uppercase_en(const char *src);
 
-char *lowercase_en(char *src);
+char *lowercase_en(const char *src);
 
 #endif //UTIL_STRINGUTILS_H

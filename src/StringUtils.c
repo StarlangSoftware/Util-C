@@ -13,7 +13,7 @@ char *str_copy(char *dst, const char *src) {
     return dst;
 }
 
-Array_list_ptr str_split(char *s, char ch) {
+Array_list_ptr str_split(const char *s, char ch) {
     char *substring;
     Array_list_ptr result = create_array_list();
     char *buffer = malloc(strlen(s) + 1);
@@ -40,7 +40,7 @@ Array_list_ptr str_split(char *s, char ch) {
     return result;
 }
 
-char *uppercase_en(char *src) {
+char *uppercase_en(const char *src) {
     char *result = malloc(strlen(src) + 1);
     char *t = result;
     while (*src) {
@@ -52,7 +52,7 @@ char *uppercase_en(char *src) {
     return t;
 }
 
-char *lowercase_en(char *src) {
+char *lowercase_en(const char *src) {
     char *result = malloc(strlen(src) + 1);
     char *t = result;
     while (*src) {
@@ -64,7 +64,7 @@ char *lowercase_en(char *src) {
     return t;
 }
 
-char *str_concat(char *src1, char *src2) {
+char *str_concat(const char *src1, const char *src2) {
     char *result = malloc(strlen(src1) + strlen(src2) + 1);
     result = strcpy(result, src1);
     result = strcat(result, src2);
@@ -91,13 +91,13 @@ void string_append(String_ptr string, char *src) {
     strcat(string->s, src);
 }
 
-char *string_copy(String_ptr string) {
+char *string_copy(const String* string) {
     char *result = NULL;
     return str_copy(result, string->s);
 }
 
 void string_append_char(String_ptr string, char ch) {
-    int length;
+    unsigned long length;
     if (strlen(string->s) + 1 >= string->max_size) {
         string->max_size *= 2;
         string->s = realloc(string->s, string->max_size * sizeof(char));

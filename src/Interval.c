@@ -35,7 +35,7 @@ void add_to_interval(Interval_ptr interval, int start, int end) {
  * @param index to use at getting tuple from {@link vector}.
  * @return the first element at the list {@link vector}'s given index.
  */
-int get_first_of_interval(Interval_ptr interval, int index) {
+int get_first_of_interval(const Interval* interval, int index) {
     return ((Tuple_ptr) array_list_get(interval->list, index))->first;
 }
 
@@ -46,7 +46,7 @@ int get_first_of_interval(Interval_ptr interval, int index) {
  * @param index to use at getting tuple from {@link vector}.
  * @return the last element at the list {@link vector}'s given index.
  */
-int get_last_of_interval(Interval_ptr interval, int index) {
+int get_last_of_interval(const Interval* interval, int index) {
     return ((Tuple_ptr) array_list_get(interval->list, index))->last;
 }
 
@@ -56,6 +56,6 @@ int get_last_of_interval(Interval_ptr interval, int index) {
  * @param interval Interval
  * @return size of the list {@link vector}.
  */
-int size_of_interval(Interval_ptr interval) {
+int size_of_interval(const Interval* interval) {
     return interval->list->size;
 }

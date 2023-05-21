@@ -20,10 +20,10 @@ void free_interval(Interval_ptr interval);
 
 void add_to_interval(Interval_ptr interval, int start, int end);
 
-int get_first_of_interval(Interval_ptr interval, int index);
+int get_first_of_interval(const Interval* interval, int index);
 
-int get_last_of_interval(Interval_ptr interval, int index);
+int get_last_of_interval(const Interval* interval, int index);
 
-int size_of_interval(Interval_ptr interval);
+int size_of_interval(const Interval* interval);
 
 #endif //UTIL_INTERVAL_H
