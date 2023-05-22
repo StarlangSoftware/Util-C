@@ -83,7 +83,7 @@ void free_string_ptr(String_ptr string) {
     free(string);
 }
 
-void string_append(String_ptr string, char *src) {
+void string_append(String_ptr string, const char *src) {
     while (strlen(string->s) + strlen(src) >= string->max_size) {
         string->max_size *= 2;
         string->s = realloc(string->s, string->max_size * sizeof(char));
@@ -107,7 +107,7 @@ void string_append_char(String_ptr string, char ch) {
     string->s[length + 1] = '\0';
 }
 
-String_ptr create_string2(char *s) {
+String_ptr create_string2(const char *s) {
     String_ptr result = create_string();
     string_append(result, s);
     return result;
@@ -119,7 +119,7 @@ void clean_string(String_ptr string) {
     string->max_size = 5;
 }
 
-void string_append_s(String_ptr string, String_ptr src) {
+void string_append_s(String_ptr string, const String* src) {
     while (strlen(string->s) + strlen(src->s) >= string->max_size) {
         string->max_size *= 2;
         string->s = realloc(string->s, string->max_size * sizeof(char));

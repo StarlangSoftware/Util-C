@@ -17,15 +17,15 @@ typedef String *String_ptr;
 
 String_ptr create_string();
 
-String_ptr create_string2(char *s);
+String_ptr create_string2(const char *s);
 
 void free_string_ptr(String_ptr string);
 
 void clean_string(String_ptr string);
 
-void string_append(String_ptr string, char *src);
+void string_append(String_ptr string, const char *src);
 
-void string_append_s(String_ptr string, String_ptr src);
+void string_append_s(String_ptr string, const String* src);
 
 void string_append_char(String_ptr string, char ch);
 
