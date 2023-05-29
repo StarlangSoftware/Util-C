@@ -35,6 +35,10 @@ void string_append_char(String_ptr string, char ch);
 
 char *string_copy(const String* string);
 
+bool string_contains(String_ptr large, String_ptr small);
+
+bool string_contains2(String_ptr large, const char* small);
+
 char *str_copy(char *dst, const char *src);
 
 char *str_concat(const char *src1, const char *src2);

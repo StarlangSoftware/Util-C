@@ -139,3 +139,11 @@ void string_append_s(String_ptr string, const String* src) {
     }
     strcat(string->s, src->s);
 }
+
+bool string_contains(String_ptr large, String_ptr small) {
+    return strstr(large->s, small->s) != NULL;
+}
+
+bool string_contains2(String_ptr large, const char *small) {
+    return strstr(large->s, small) != NULL;
+}
