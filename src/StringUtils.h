@@ -35,9 +35,9 @@ void string_append_char(String_ptr string, char ch);
 
 char *string_copy(const String* string);
 
-bool string_contains(String_ptr large, String_ptr small);
+bool string_contains(const String* large, const String* small);
 
-bool string_contains2(String_ptr large, const char* small);
+bool string_contains2(const String* large, const char* small);
 
 char *str_copy(char *dst, const char *src);
 
@@ -47,9 +47,11 @@ bool str_contains(const char *large, const char *small);
 
 bool str_contains_c(const char *s, char ch);
 
-bool string_equals(String_ptr s1, String_ptr s2);
+bool string_equals(const String* s1, const String* s2);
 
-bool string_equals2(String_ptr s1, const char* s2);
+bool string_equals2(const String* s1, const char* s2);
+
+bool string_empty(const String* s);
 
 Array_list_ptr str_split(const char *s, char ch);
 

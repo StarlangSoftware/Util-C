@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdarg.h>
 #include "StringUtils.h"
 
 char *str_copy(char *dst, const char *src) {
@@ -140,11 +139,11 @@ void string_append_s(String_ptr string, const String* src) {
     strcat(string->s, src->s);
 }
 
-bool string_contains(String_ptr large, String_ptr small) {
+bool string_contains(const String* large, const String* small) {
     return strstr(large->s, small->s) != NULL;
 }
 
-bool string_contains2(String_ptr large, const char *small) {
+bool string_contains2(const String* large, const char *small) {
     return strstr(large->s, small) != NULL;
 }
 
@@ -170,10 +169,14 @@ bool str_contains_c(const char *s, char ch) {
     return strstr(s, &ch) != NULL;
 }
 
-bool string_equals(String_ptr s1, String_ptr s2) {
+bool string_equals(const String* s1, const String* s2) {
     return strcmp(s1->s, s2->s) == 0;
 }
 
-bool string_equals2(String_ptr s1, const char *s2) {
+bool string_equals2(const String* s1, const char *s2) {
     return strcmp(s1->s, s2) == 0;
+}
+
+bool string_empty(const String *s) {
+    return strlen(s->s) == 0;
 }
