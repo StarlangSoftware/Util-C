@@ -43,6 +43,10 @@ char *str_copy(char *dst, const char *src);
 
 char *str_concat(const char *src1, const char *src2);
 
+bool str_contains(const char *large, const char *small);
+
+bool str_contains_c(const char *s, char ch);
+
 Array_list_ptr str_split(const char *s, char ch);
 
 char *uppercase_en(const char *src);

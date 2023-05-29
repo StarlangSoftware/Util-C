@@ -147,3 +147,25 @@ bool string_contains(String_ptr large, String_ptr small) {
 bool string_contains2(String_ptr large, const char *small) {
     return strstr(large->s, small) != NULL;
 }
+
+/**
+ * The contains method takes a String and a char input then check the given String contains the given char.
+ *
+ * @param s         String input to search for the char.
+ * @param st Char input to look for in String.
+ * @return true if char is found, false otherwise.
+ */
+bool str_contains(const char *large, const char *small) {
+    return strstr(large, small) != NULL;
+}
+
+/**
+ * The contains method takes a String and a char input then check the given String contains the given char.
+ *
+ * @param s         String input to search for the char.
+ * @param ch Char input to look for in String.
+ * @return true if char is found, false otherwise.
+ */
+bool str_contains_c(const char *s, char ch) {
+    return strstr(s, &ch) != NULL;
+}
