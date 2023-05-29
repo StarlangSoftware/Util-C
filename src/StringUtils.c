@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdarg.h>
 #include "StringUtils.h"
 
 char *str_copy(char *dst, const char *src) {
@@ -110,6 +111,18 @@ void string_append_char(String_ptr string, char ch) {
 String_ptr create_string2(const char *s) {
     String_ptr result = create_string();
     string_append(result, s);
+    return result;
+}
+
+String_ptr create_string3(const char *s1, const char *s2) {
+    String_ptr result = create_string2(s1);
+    string_append(result, s2);
+    return result;
+}
+
+String_ptr create_string4(const char *s1, const char *s2, const char *s3) {
+    String_ptr result = create_string3(s1, s2);
+    string_append(result, s3);
     return result;
 }
 

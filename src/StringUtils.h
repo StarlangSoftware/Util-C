@@ -19,6 +19,10 @@ String_ptr create_string();
 
 String_ptr create_string2(const char *s);
 
+String_ptr create_string3(const char* s1, const char* s2);
+
+String_ptr create_string4(const char* s1, const char* s2, const char* s3);
+
 void free_string_ptr(String_ptr string);
 
 void clean_string(String_ptr string);
