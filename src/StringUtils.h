@@ -47,6 +47,10 @@ bool str_contains(const char *large, const char *small);
 
 bool str_contains_c(const char *s, char ch);
 
+bool string_equals(String_ptr s1, String_ptr s2);
+
+bool string_equals2(String_ptr s1, const char* s2);
+
 Array_list_ptr str_split(const char *s, char ch);
 
 char *uppercase_en(const char *src);

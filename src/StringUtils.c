@@ -169,3 +169,11 @@ bool str_contains(const char *large, const char *small) {
 bool str_contains_c(const char *s, char ch) {
     return strstr(s, &ch) != NULL;
 }
+
+bool string_equals(String_ptr s1, String_ptr s2) {
+    return strcmp(s1->s, s2->s) == 0;
+}
+
+bool string_equals2(String_ptr s1, const char *s2) {
+    return strcmp(s1->s, s2) == 0;
+}
