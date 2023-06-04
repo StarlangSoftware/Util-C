@@ -8,7 +8,7 @@
 #include <ArrayList.h>
 #include <stdio.h>
 
-#define MAX_LINE_LENGTH 5000
+#define MAX_LINE_LENGTH 16384
 
 Array_list_ptr read_items(FILE* input_file, char delimiter);
 
