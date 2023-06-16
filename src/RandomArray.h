@@ -9,6 +9,6 @@
 
 double *normalized_array(int item_count);
 
-Array_list_ptr indexArray(int item_count, int seed);
+Array_list_ptr index_array(int item_count, int seed);
 
 #endif //UTIL_RANDOMARRAY_H

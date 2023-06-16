@@ -21,7 +21,7 @@ void normalizedArrayTest() {
 
 void indexArrayTest() {
     Array_list_ptr array;
-    array = indexArray(10, 0);
+    array = index_array(10, 0);
     int sum = 0;
     for (int i = 0; i < 10; i++) {
         sum += *((int *) array_list_get(array, i));

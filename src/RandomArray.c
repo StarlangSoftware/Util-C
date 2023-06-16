@@ -26,14 +26,13 @@ double *normalized_array(int item_count) {
     return array;
 }
 
-Array_list_ptr indexArray(int item_count, int seed) {
-    srand(seed);
+Array_list_ptr index_array(int item_count, int seed) {
     Array_list_ptr random_array = create_array_list();
     for (int i = 0; i < item_count; i++) {
         int *number = malloc(sizeof(int));
         *number = i;
         array_list_add(random_array, number);
     }
-    array_list_shuffle(random_array);
+    array_list_shuffle(random_array, seed);
     return random_array;
 }
