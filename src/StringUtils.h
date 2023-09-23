@@ -59,4 +59,6 @@ char *uppercase_en(const char *src);
 
 char *lowercase_en(const char *src);
 
+char* left_trim(char* s);
+
 #endif //UTIL_STRINGUTILS_H

@@ -180,3 +180,11 @@ bool string_equals2(const String* s1, const char *s2) {
 bool string_empty(const String *s) {
     return strlen(s->s) == 0;
 }
+
+char *left_trim(char *s) {
+    int i = 0;
+    while (isspace(s[i])){
+        i++;
+    }
+    return &(s[i]);
+}
