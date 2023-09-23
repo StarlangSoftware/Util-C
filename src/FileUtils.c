@@ -8,7 +8,7 @@
 
 Array_list_ptr read_items(FILE *input_file, char delimiter) {
     char ch = fgetc(input_file);
-    char buffer[1000];
+    char buffer[MAX_LINE_LENGTH];
     char* item;
     int index = 0;
     Array_list_ptr result = create_array_list();
