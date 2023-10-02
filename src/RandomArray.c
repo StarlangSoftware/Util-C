@@ -29,9 +29,7 @@ double *normalized_array(int item_count) {
 Array_list_ptr index_array(int item_count, int seed) {
     Array_list_ptr random_array = create_array_list();
     for (int i = 0; i < item_count; i++) {
-        int *number = malloc(sizeof(int));
-        *number = i;
-        array_list_add(random_array, number);
+        array_list_add_int(random_array, i);
     }
     array_list_shuffle(random_array, seed);
     return random_array;
