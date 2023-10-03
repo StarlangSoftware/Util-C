@@ -6,7 +6,7 @@
 #include "Tuple.h"
 
 /**
- * The constructor of {@link Tuple} struct which takes two integer inputs and initializes first and last variables
+ * The constructor of Tuple struct which takes two integer inputs and initializes first and last variables
  * with given inputs.
  *
  * @param first integer input.
