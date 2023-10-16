@@ -43,9 +43,23 @@ void test_string() {
     free_string_ptr(s);
 }
 
+void test_split(){
+    Array_list_ptr items = str_split2("iyi+ADJ^DB+VERB+BECOME^DB+VERB+CAUS^DB+VERB+PASS+POS^DB+VERB+ABLE^DB+NOUN+INF2+A3PL+P3PL+ABL", "^DB+");
+    for (int i = 0; i < items->size; i++){
+        printf("%s\n", (char*) array_list_get(items, i));
+    }
+    free_array_list(items, free);
+    items = str_split2("serbest+ADJ", "^DB+");
+    for (int i = 0; i < items->size; i++){
+        printf("%s\n", (char*) array_list_get(items, i));
+    }
+    free_array_list(items, free);
+}
+
 int main() {
     test_uppercase();
     test_lowercase();
     test_concat();
     test_string();
+    test_split();
 }

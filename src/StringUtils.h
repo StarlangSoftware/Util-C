@@ -61,4 +61,6 @@ char *lowercase_en(const char *src);
 
 char* left_trim(char* s);
 
+Array_list_ptr str_split2(const char *s, const char* word);
+
 #endif //UTIL_STRINGUTILS_H

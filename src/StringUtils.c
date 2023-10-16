@@ -14,21 +14,41 @@ char *str_copy(char *dst, const char *src) {
 }
 
 Array_list_ptr str_split(const char *s, char ch) {
+    char separator[2];
+    separator[0] = ch;
+    separator[1] = '\0';
+    return str_split2(s, separator);
+}
+
+Array_list_ptr str_split2(const char *s, const char *word) {
     char *substring;
     Array_list_ptr result = create_array_list();
     char *buffer = malloc(strlen(s) + 1);
     int j = 0;
     while (*s) {
-        if (*s != ch) {
+        if (*s != word[0]) {
             buffer[j] = *s;
             j++;
         } else {
-            buffer[j] = '\0';
-            if (j != 0) {
-                substring = str_copy(substring, buffer);
-                array_list_add(result, substring);
+            bool found = true;
+            for (int i = 1; i < strlen(word); i++){
+                if (*(s + i) != word[i]){
+                    found = false;
+                    break;
+                }
             }
-            j = 0;
+            if (found){
+                buffer[j] = '\0';
+                if (j != 0) {
+                    substring = str_copy(substring, buffer);
+                    array_list_add(result, substring);
+                }
+                j = 0;
+                s += strlen(word) - 1;
+            } else {
+                buffer[j] = *s;
+                j++;
+            }
         }
         s++;
     }
