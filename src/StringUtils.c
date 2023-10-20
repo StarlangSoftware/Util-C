@@ -217,3 +217,8 @@ bool string_in_list(const char *s, char **list, int size) {
     }
     return false;
 }
+
+void string_replace(String_ptr st, const char *word) {
+    clean_string(st);
+    string_append(st, word);
+}
