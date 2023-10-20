@@ -208,3 +208,12 @@ char *left_trim(char *s) {
     }
     return &(s[i]);
 }
+
+bool string_in_list(const char *s, char **list, int size) {
+    for (int i = 0; i < size; i++){
+        if (strcmp(s, list[i]) == 0){
+            return true;
+        }
+    }
+    return false;
+}

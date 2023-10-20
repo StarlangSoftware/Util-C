@@ -63,4 +63,6 @@ char* left_trim(char* s);
 
 Array_list_ptr str_split2(const char *s, const char* word);
 
+bool string_in_list(const char* s, char* list[], int size);
+
 #endif //UTIL_STRINGUTILS_H
