@@ -12,4 +12,6 @@
 
 Array_list_ptr read_items(FILE* input_file, char delimiter);
 
+Array_list_ptr read_lines(const char* file_name);
+
 #endif //UTIL_FILEUTILS_H
