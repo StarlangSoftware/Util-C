@@ -39,13 +39,15 @@ Array_list_ptr read_lines(const char *file_name) {
     char line[MAX_LINE_LENGTH];
     Array_list_ptr result = create_array_list();
     input_file = fopen(file_name, "r");
-    char* input = fgets(line, MAX_LINE_LENGTH, input_file);
-    while (input != NULL){
-        line[strcspn(line, "\n")] = 0;
-        char* copy = str_copy(copy, line);
-        array_list_add(result, copy);
-        input = fgets(line, MAX_LINE_LENGTH, input_file);
+    if (input_file != NULL){
+        char* input = fgets(line, MAX_LINE_LENGTH, input_file);
+        while (input != NULL){
+            line[strcspn(line, "\n")] = 0;
+            char* copy = str_copy(copy, line);
+            array_list_add(result, copy);
+            input = fgets(line, MAX_LINE_LENGTH, input_file);
+        }
+        fclose(input_file);
     }
-    fclose(input_file);
     return result;
 }
