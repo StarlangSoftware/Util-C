@@ -8,6 +8,9 @@
 #include "StringUtils.h"
 
 char *str_copy(char *dst, const char *src) {
+    if (src == NULL){
+        return NULL;
+    }
     dst = malloc(strlen(src) + 1);
     strcpy(dst, src);
     return dst;
