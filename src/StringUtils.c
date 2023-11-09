@@ -225,3 +225,12 @@ void string_replace(String_ptr st, const char *word) {
     clean_string(st);
     string_append(st, word);
 }
+
+int string_index(const char *s, char **list, int size) {
+    for (int i = 0; i < size; i++){
+        if (strcmp(s, list[i]) == 0){
+            return i;
+        }
+    }
+    return -1;
+}

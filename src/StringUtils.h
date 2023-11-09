@@ -65,6 +65,8 @@ Array_list_ptr str_split2(const char *s, const char* word);
 
 bool string_in_list(const char* s, char* list[], int size);
 
+int string_index(const char* s, char* list[], int size);
+
 void string_replace(String_ptr st, const char* word);
 
 #endif //UTIL_STRINGUTILS_H
