@@ -234,3 +234,37 @@ int string_index(const char *s, char *list[], int size) {
     }
     return -1;
 }
+
+Array_list_ptr str_split3(const char *s, const char *word) {
+    char *substring;
+    Array_list_ptr result = create_array_list();
+    char *buffer = malloc(strlen(s) + 1);
+    int j = 0;
+    while (*s) {
+        bool found = false;
+        for (int i = 0; i < strlen(word); i++){
+            if (*s == word[i]){
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            buffer[j] = *s;
+            j++;
+        } else {
+            buffer[j] = '\0';
+            if (j != 0) {
+                substring = str_copy(substring, buffer);
+                array_list_add(result, substring);
+            }
+            j = 0;
+        }
+        s++;
+    }
+    buffer[j] = '\0';
+    if (j != 0) {
+        substring = str_copy(substring, buffer);
+        array_list_add(result, substring);
+    }
+    return result;
+}

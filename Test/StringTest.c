@@ -43,7 +43,7 @@ void test_string() {
     free_string_ptr(s);
 }
 
-void test_split(){
+void test_split2(){
     Array_list_ptr items = str_split2("iyi+ADJ^DB+VERB+BECOME^DB+VERB+CAUS^DB+VERB+PASS+POS^DB+VERB+ABLE^DB+NOUN+INF2+A3PL+P3PL+ABL", "^DB+");
     for (int i = 0; i < items->size; i++){
         printf("%s\n", (char*) array_list_get(items, i));
@@ -56,10 +56,19 @@ void test_split(){
     free_array_list(items, free);
 }
 
+void test_split3(){
+    Array_list_ptr items = str_split3("[4,1,(SENTENCE)]", ",[]()");
+    for (int i = 0; i < items->size; i++){
+        printf("%s\n", (char*) array_list_get(items, i));
+    }
+    free_array_list(items, free);
+}
+
 int main() {
     test_uppercase();
     test_lowercase();
     test_concat();
     test_string();
-    test_split();
+    test_split2();
+    test_split3();
 }
