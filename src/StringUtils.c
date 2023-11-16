@@ -235,15 +235,15 @@ int string_index(const char *s, char *list[], int size) {
     return -1;
 }
 
-Array_list_ptr str_split3(const char *s, const char *word) {
+Array_list_ptr str_split3(const char *s, const char *separator_list) {
     char *substring;
     Array_list_ptr result = create_array_list();
     char *buffer = malloc(strlen(s) + 1);
     int j = 0;
     while (*s) {
         bool found = false;
-        for (int i = 0; i < strlen(word); i++){
-            if (*s == word[i]){
+        for (int i = 0; i < strlen(separator_list); i++){
+            if (*s == separator_list[i]){
                 found = true;
                 break;
             }
