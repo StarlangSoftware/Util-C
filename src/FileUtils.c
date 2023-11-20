@@ -72,3 +72,24 @@ Hash_set_ptr read_hash_set(const char *file_name) {
     }
     return result;
 }
+
+Hash_map_ptr read_hash_map(const char *file_name) {
+    FILE* input_file;
+    char line[MAX_LINE_LENGTH];
+    Hash_map_ptr result = create_string_hash_map();
+    input_file = fopen(file_name, "r");
+    if (input_file != NULL){
+        char* input = fgets(line, MAX_LINE_LENGTH, input_file);
+        while (input != NULL){
+            line[strcspn(line, "\n")] = 0;
+            if (strlen(line) != 0){
+                Array_list_ptr items = str_split(line, ' ');
+                hash_map_insert(result, array_list_get(items, 0), array_list_get(items, 1));
+                free_array_list(items, NULL);
+            }
+            input = fgets(line, MAX_LINE_LENGTH, input_file);
+        }
+        fclose(input_file);
+    }
+    return result;
+}

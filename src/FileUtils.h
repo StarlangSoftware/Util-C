@@ -17,4 +17,6 @@ Array_list_ptr read_lines(const char* file_name);
 
 Hash_set_ptr read_hash_set(const char *file_name);
 
+Hash_map_ptr read_hash_map(const char *file_name);
+
 #endif //UTIL_FILEUTILS_H
