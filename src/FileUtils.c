@@ -63,8 +63,10 @@ Hash_set_ptr read_hash_set(const char *file_name) {
         char* input = fgets(line, MAX_LINE_LENGTH, input_file);
         while (input != NULL){
             line[strcspn(line, "\n")] = 0;
-            char* copy = str_copy(copy, line);
-            hash_set_insert(result, copy);
+            if (strlen(line) != 0){
+                char* copy = str_copy(copy, line);
+                hash_set_insert(result, copy);
+            }
             input = fgets(line, MAX_LINE_LENGTH, input_file);
         }
         fclose(input_file);
