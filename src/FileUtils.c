@@ -5,6 +5,7 @@
 #include <string.h>
 #include "FileUtils.h"
 #include "StringUtils.h"
+#include <HashMap/HashSet.h>
 
 Array_list_ptr read_items(FILE *input_file, char delimiter) {
     char ch = fgetc(input_file);
@@ -45,6 +46,25 @@ Array_list_ptr read_lines(const char *file_name) {
             line[strcspn(line, "\n")] = 0;
             char* copy = str_copy(copy, line);
             array_list_add(result, copy);
+            input = fgets(line, MAX_LINE_LENGTH, input_file);
+        }
+        fclose(input_file);
+    }
+    return result;
+}
+
+Hash_set_ptr read_hash_set(const char *file_name) {
+    FILE* input_file;
+    char line[MAX_LINE_LENGTH];
+    Hash_set_ptr result = create_hash_set((unsigned int (*)(const void *, int)) hash_function_string,
+                                          (int (*)(const void *, const void *)) compare_string);
+    input_file = fopen(file_name, "r");
+    if (input_file != NULL){
+        char* input = fgets(line, MAX_LINE_LENGTH, input_file);
+        while (input != NULL){
+            line[strcspn(line, "\n")] = 0;
+            char* copy = str_copy(copy, line);
+            hash_set_insert(result, copy);
             input = fgets(line, MAX_LINE_LENGTH, input_file);
         }
         fclose(input_file);
