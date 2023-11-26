@@ -98,10 +98,7 @@ char *str_concat(const char *src1, const char *src2) {
 
 String_ptr create_string() {
     String_ptr result = malloc_(sizeof(String), "create_string_1");
-    result->s = malloc_(5 * sizeof(char), "create_string_2");
-    for (int i = 0; i < 5; i++){
-        result->s[i] = '\0';
-    }
+    result->s = calloc_(5, sizeof(char), "create_string_2");
     result->max_size = 5;
     return result;
 }
@@ -155,10 +152,7 @@ String_ptr create_string4(const char *s1, const char *s2, const char *s3) {
 
 void clean_string(String_ptr string) {
     free_(string->s);
-    string->s = malloc_(5 * sizeof(char), "clean_string");
-    for (int i = 0; i < 5; i++){
-        string->s[i] = '\0';
-    }
+    string->s = calloc_(5, sizeof(char), "clean_string");
     string->max_size = 5;
 }
 
