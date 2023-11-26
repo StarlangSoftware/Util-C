@@ -5,13 +5,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <Memory/Memory.h>
 #include "StringUtils.h"
 
 char *str_copy(char *dst, const char *src) {
     if (src == NULL){
         return NULL;
     }
-    dst = malloc(strlen(src) + 1);
+    dst = malloc_(strlen(src) + 1, "str_copy");
     strcpy(dst, src);
     return dst;
 }
@@ -26,7 +27,7 @@ Array_list_ptr str_split(const char *s, char ch) {
 Array_list_ptr str_split2(const char *s, const char *word) {
     char *substring;
     Array_list_ptr result = create_array_list();
-    char *buffer = malloc(strlen(s) + 1);
+    char *buffer = malloc_(strlen(s) + 1, "str_split2");
     int j = 0;
     while (*s) {
         if (*s != word[0]) {
@@ -60,11 +61,12 @@ Array_list_ptr str_split2(const char *s, const char *word) {
         substring = str_copy(substring, buffer);
         array_list_add(result, substring);
     }
+    free_(buffer);
     return result;
 }
 
 char *uppercase_en(const char *src) {
-    char *result = malloc(strlen(src) + 1);
+    char *result = malloc_(strlen(src) + 1, "uppercase_en");
     char *t = result;
     while (*src) {
         *result = toupper(*src);
@@ -76,7 +78,7 @@ char *uppercase_en(const char *src) {
 }
 
 char *lowercase_en(const char *src) {
-    char *result = malloc(strlen(src) + 1);
+    char *result = malloc_(strlen(src) + 1, "lowercase_en");
     char *t = result;
     while (*src) {
         *result = tolower(*src);
@@ -88,28 +90,31 @@ char *lowercase_en(const char *src) {
 }
 
 char *str_concat(const char *src1, const char *src2) {
-    char *result = malloc(strlen(src1) + strlen(src2) + 1);
+    char *result = malloc_(strlen(src1) + strlen(src2) + 1, "str_concat");
     result = strcpy(result, src1);
     result = strcat(result, src2);
     return result;
 }
 
 String_ptr create_string() {
-    String_ptr result = malloc(sizeof(String));
-    result->s = calloc(5, sizeof(char));
+    String_ptr result = malloc_(sizeof(String), "create_string_1");
+    result->s = malloc_(5 * sizeof(char), "create_string_2");
+    for (int i = 0; i < 5; i++){
+        result->s[i] = '\0';
+    }
     result->max_size = 5;
     return result;
 }
 
 void free_string_ptr(String_ptr string) {
-    free(string->s);
-    free(string);
+    free_(string->s);
+    free_(string);
 }
 
 void string_append(String_ptr string, const char *src) {
     while (strlen(string->s) + strlen(src) >= string->max_size) {
         string->max_size *= 2;
-        string->s = realloc(string->s, string->max_size * sizeof(char));
+        string->s = realloc_(string->s, string->max_size * sizeof(char), "string_append");
     }
     strcat(string->s, src);
 }
@@ -149,8 +154,11 @@ String_ptr create_string4(const char *s1, const char *s2, const char *s3) {
 }
 
 void clean_string(String_ptr string) {
-    free(string->s);
-    string->s = calloc(5, sizeof(char));
+    free_(string->s);
+    string->s = malloc_(5 * sizeof(char), "clean_string");
+    for (int i = 0; i < 5; i++){
+        string->s[i] = '\0';
+    }
     string->max_size = 5;
 }
 
@@ -238,7 +246,7 @@ int string_index(const char *s, char *list[], int size) {
 Array_list_ptr str_split3(const char *s, const char *separator_list) {
     char *substring;
     Array_list_ptr result = create_array_list();
-    char *buffer = malloc(strlen(s) + 1);
+    char *buffer = malloc_(strlen(s) + 1, "str_split3");
     int j = 0;
     while (*s) {
         bool found = false;
@@ -266,5 +274,6 @@ Array_list_ptr str_split3(const char *s, const char *separator_list) {
         substring = str_copy(substring, buffer);
         array_list_add(result, substring);
     }
+    free_(buffer);
     return result;
 }

@@ -4,7 +4,7 @@
 
 #include <string.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <Memory/Memory.h>
 #include "../src/StringUtils.h"
 
 void test_uppercase() {
@@ -12,7 +12,7 @@ void test_uppercase() {
     if (strcmp(upper, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") != 0) {
         printf("Test Failed in test_uppercase\n");
     }
-    free(upper);
+    free_(upper);
 }
 
 void test_lowercase() {
@@ -20,7 +20,7 @@ void test_lowercase() {
     if (strcmp(upper, "abcdefghijklmnopqrstuvwxyz") != 0) {
         printf("Test Failed in test_lowercase\n");
     }
-    free(upper);
+    free_(upper);
 }
 
 void test_concat() {
@@ -28,6 +28,7 @@ void test_concat() {
     if (strcmp(result, "aliveli") != 0) {
         printf("Test Failed in test_lowercase\n");
     }
+    free_(result);
 }
 
 void test_string() {
@@ -48,7 +49,7 @@ void test_split1(){
     for (int i = 0; i < items->size; i++){
         printf("%s\n", (char*) array_list_get(items, i));
     }
-    free_array_list(items, free);
+    free_array_list(items, free_);
 }
 
 void test_split2(){
@@ -56,12 +57,12 @@ void test_split2(){
     for (int i = 0; i < items->size; i++){
         printf("%s\n", (char*) array_list_get(items, i));
     }
-    free_array_list(items, free);
+    free_array_list(items, free_);
     items = str_split2("serbest+ADJ", "^DB+");
     for (int i = 0; i < items->size; i++){
         printf("%s\n", (char*) array_list_get(items, i));
     }
-    free_array_list(items, free);
+    free_array_list(items, free_);
 }
 
 void test_split3(){
@@ -69,7 +70,7 @@ void test_split3(){
     for (int i = 0; i < items->size; i++){
         printf("%s\n", (char*) array_list_get(items, i));
     }
-    free_array_list(items, free);
+    free_array_list(items, free_);
 }
 
 int main() {

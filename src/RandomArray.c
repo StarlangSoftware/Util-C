@@ -3,6 +3,7 @@
 //
 
 #include <stdlib.h>
+#include <Memory/Memory.h>
 #include "RandomArray.h"
 
 /**
@@ -15,7 +16,7 @@
 double *normalized_array(int item_count) {
     int i;
     double sum = 0.0;
-    double *array = malloc(item_count * sizeof(double));
+    double *array = malloc_(item_count * sizeof(double), "normalized_array");
     for (i = 0; i < item_count; i++) {
         array[i] = random() / (RAND_MAX + 1.0);
         sum += array[i];

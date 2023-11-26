@@ -3,6 +3,7 @@
 //
 
 #include <stdlib.h>
+#include <Memory/Memory.h>
 #include "SubsetFromList.h"
 
 /**
@@ -17,12 +18,12 @@
  * @param element_count integer input element count.
  */
 Subset_from_list_ptr create_subset_from_list(int *list, int list_size, int element_count) {
-    Subset_from_list_ptr result = malloc(sizeof(Subset_from_list));
+    Subset_from_list_ptr result = malloc_(sizeof(Subset_from_list), "create_subset_from_list_1");
     result->element_list = list;
     result->element_count = element_count;
     result->list_size = list_size;
-    result->set = malloc(element_count * sizeof(int));
-    result->index_list = malloc(element_count * sizeof(int));
+    result->set = malloc_(element_count * sizeof(int), "create_subset_from_list_2");
+    result->index_list = malloc_(element_count * sizeof(int), "create_subset_from_list_3");
     for (int i = 0; i < element_count; i++) {
         result->index_list[i] = i;
         result->set[i] = result->element_list[result->index_list[i]];
@@ -31,9 +32,9 @@ Subset_from_list_ptr create_subset_from_list(int *list, int list_size, int eleme
 }
 
 void free_subset_from_list(Subset_from_list_ptr subset) {
-    free(subset->set);
-    free(subset->index_list);
-    free(subset);
+    free_(subset->set);
+    free_(subset->index_list);
+    free_(subset);
 }
 
 /**

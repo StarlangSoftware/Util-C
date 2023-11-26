@@ -3,6 +3,7 @@
 //
 
 #include <stdlib.h>
+#include <Memory/Memory.h>
 #include "Tuple.h"
 
 /**
@@ -13,12 +14,12 @@
  * @param last  integer input.
  */
 Tuple_ptr create_tuple(int first, int last) {
-    Tuple_ptr result = malloc(sizeof(Tuple));
+    Tuple_ptr result = malloc_(sizeof(Tuple), "create_tuple");
     result->first = first;
     result->last = last;
     return result;
 }
 
 void free_tuple(Tuple_ptr tuple) {
-    free(tuple);
+    free_(tuple);
 }

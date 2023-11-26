@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "Permutation.h"
 #include "Swap.h"
+#include "Memory/Memory.h"
 
 /**
  * A constructor of Permutation class which creates a new array and assigns integer
@@ -13,10 +14,10 @@
  * @param n integer input.
  */
 Permutation_ptr create_permutation(int n) {
-    Permutation_ptr result = malloc(sizeof(Permutation));
+    Permutation_ptr result = malloc_(sizeof(Permutation), "create_permutation_1");
     int i;
     result->n = n;
-    result->a = malloc(n * sizeof(int));
+    result->a = malloc_(n * sizeof(int), "create_permutation_2");
     for (i = 0; i < n; i++) {
         result->a[i] = i;
     }
@@ -24,8 +25,8 @@ Permutation_ptr create_permutation(int n) {
 }
 
 void free_permutation(Permutation_ptr permutation) {
-    free(permutation->a);
-    free(permutation);
+    free_(permutation->a);
+    free_(permutation);
 }
 
 /**

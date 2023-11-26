@@ -3,18 +3,19 @@
 //
 
 #include <stdlib.h>
+#include <Memory/Memory.h>
 #include "Interval.h"
 #include "Tuple.h"
 
 Interval_ptr create_interval() {
-    Interval_ptr result = malloc(sizeof(Interval));
+    Interval_ptr result = malloc_(sizeof(Interval), "create_interval");
     result->list = create_array_list();
     return result;
 }
 
 void free_interval(Interval_ptr interval) {
     free_array_list(interval->list, (void (*)(void *)) free_tuple);
-    free(interval);
+    free_(interval);
 }
 
 /**

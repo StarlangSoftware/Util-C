@@ -3,6 +3,7 @@
 //
 
 #include <stdlib.h>
+#include <Memory/Memory.h>
 #include "Subset.h"
 
 /**
@@ -16,10 +17,10 @@
  * @param element_count integer input element count.
  */
 Subset_ptr create_subset(int range_start, int range_end, int element_count) {
-    Subset_ptr result = malloc(sizeof(Subset));
+    Subset_ptr result = malloc_(sizeof(Subset), "create_subset_1");
     result->range_end = range_end;
     result->element_count = element_count;
-    result->set = malloc(element_count * sizeof(int));
+    result->set = malloc_(element_count * sizeof(int), "create_subset_2");
     for (int i = 0; i < element_count; i++) {
         result->set[i] = range_start + i;
     }
@@ -27,8 +28,8 @@ Subset_ptr create_subset(int range_start, int range_end, int element_count) {
 }
 
 void free_subset(Subset_ptr subset) {
-    free(subset->set);
-    free(subset);
+    free_(subset->set);
+    free_(subset);
 }
 
 /**
