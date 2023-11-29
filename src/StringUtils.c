@@ -125,7 +125,7 @@ void string_append_char(String_ptr string, char ch) {
     unsigned long length;
     if (strlen(string->s) + 1 >= string->max_size) {
         string->max_size *= 2;
-        string->s = realloc(string->s, string->max_size * sizeof(char));
+        string->s = realloc_(string->s, string->max_size * sizeof(char), "string_append_char");
     }
     length = strlen(string->s);
     string->s[length] = ch;
@@ -159,7 +159,7 @@ void clean_string(String_ptr string) {
 void string_append_s(String_ptr string, const String* src) {
     while (strlen(string->s) + strlen(src->s) >= string->max_size) {
         string->max_size *= 2;
-        string->s = realloc(string->s, string->max_size * sizeof(char));
+        string->s = realloc_(string->s, string->max_size * sizeof(char), "string_append_s");
     }
     strcat(string->s, src->s);
 }
@@ -273,7 +273,7 @@ Array_list_ptr str_split3(const char *s, const char *separator_list) {
 }
 
 char *clone_string(const char *s) {
-    char* result = malloc(strlen(s) + 1);
+    char* result = malloc_(strlen(s) + 1, "clone_string");
     strcpy(result, s);
     return result;
 }
