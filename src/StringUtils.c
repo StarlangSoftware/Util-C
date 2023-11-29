@@ -271,3 +271,9 @@ Array_list_ptr str_split3(const char *s, const char *separator_list) {
     free_(buffer);
     return result;
 }
+
+char *clone_string(const char *s) {
+    char* result = malloc(strlen(s) + 1);
+    strcpy(result, s);
+    return result;
+}

@@ -71,4 +71,6 @@ void string_replace(String_ptr st, const char* word);
 
 Array_list_ptr str_split3(const char *s, const char* separator_list);
 
+char* clone_string(const char* s);
+
 #endif //UTIL_STRINGUTILS_H
