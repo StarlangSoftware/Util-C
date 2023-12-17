@@ -66,6 +66,9 @@ Array_list_ptr str_split2(const char *s, const char *word) {
 }
 
 char *uppercase_en(const char *src) {
+    if (src == NULL){
+        return NULL;
+    }
     char *result = malloc_(strlen(src) + 1, "uppercase_en");
     char *t = result;
     while (*src) {
@@ -78,6 +81,9 @@ char *uppercase_en(const char *src) {
 }
 
 char *lowercase_en(const char *src) {
+    if (src == NULL){
+        return NULL;
+    }
     char *result = malloc_(strlen(src) + 1, "lowercase_en");
     char *t = result;
     while (*src) {
