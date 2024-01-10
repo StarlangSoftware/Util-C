@@ -139,19 +139,28 @@ void string_append_char(String_ptr string, char ch) {
 }
 
 String_ptr create_string2(const char *s) {
-    String_ptr result = create_string();
+    String_ptr result = malloc_(sizeof(String), "create_string2_1");
+    result->s = calloc_(5, sizeof(char), "create_string2_2");
+    result->max_size = 5;
     string_append(result, s);
     return result;
 }
 
 String_ptr create_string3(const char *s1, const char *s2) {
-    String_ptr result = create_string2(s1);
+    String_ptr result = malloc_(sizeof(String), "create_string3_1");
+    result->s = calloc_(5, sizeof(char), "create_string3_2");
+    result->max_size = 5;
+    string_append(result, s1);
     string_append(result, s2);
     return result;
 }
 
 String_ptr create_string4(const char *s1, const char *s2, const char *s3) {
-    String_ptr result = create_string3(s1, s2);
+    String_ptr result = malloc_(sizeof(String), "create_string4_1");
+    result->s = calloc_(5, sizeof(char), "create_string4_2");
+    result->max_size = 5;
+    string_append(result, s1);
+    string_append(result, s2);
     string_append(result, s3);
     return result;
 }
