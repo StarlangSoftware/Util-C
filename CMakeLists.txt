@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.23)
 project(Util)
-set(CMAKE_C_STANDARD 17)
-set(CMAKE_C_FLAGS "-O3")
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_FLAGS "-O3")
 
 find_package(data_structure_c REQUIRED)
 
@@ -19,3 +19,5 @@ add_executable(SubsetFromListTest src/Tuple.c src/Tuple.h src/Swap.c src/Swap.h 
 target_link_libraries(SubsetFromListTest data_structure_c::data_structure_c)
 add_executable(StringTest src/Tuple.c src/Tuple.h src/Swap.c src/Swap.h src/Interval.c src/Interval.h src/Permutation.c src/Permutation.h src/RandomArray.c src/RandomArray.h src/Subset.c src/Subset.h src/SubsetFromList.c src/SubsetFromList.h src/StringUtils.c src/StringUtils.h src/FileUtils.c src/FileUtils.h Test/StringTest.c)
 target_link_libraries(StringTest data_structure_c::data_structure_c)
+add_executable(FileUtilsTest src/Tuple.c src/Tuple.h src/Swap.c src/Swap.h src/Interval.c src/Interval.h src/Permutation.c src/Permutation.h src/RandomArray.c src/RandomArray.h src/Subset.c src/Subset.h src/SubsetFromList.c src/SubsetFromList.h src/StringUtils.c src/StringUtils.h src/FileUtils.c src/FileUtils.h Test/FileUtilsTest.c)
+target_link_libraries(FileUtilsTest data_structure_c::data_structure_c)
