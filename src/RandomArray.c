@@ -27,6 +27,12 @@ double *normalized_array(int item_count) {
     return array;
 }
 
+/**
+ * Creates and returns a random index array, where the indexes in the array are between 0 and itemCount - 1.
+ * @param itemCount Number of indexes
+ * @param random Random number generator
+ * @return Randomized array containing numbers between 0 and itemCount - 1.
+ */
 Array_list_ptr index_array(int item_count, int seed) {
     Array_list_ptr random_array = create_array_list();
     for (int i = 0; i < item_count; i++) {
