@@ -14,10 +14,10 @@
  * @param n integer input.
  */
 Permutation_ptr create_permutation(int n) {
-    Permutation_ptr result = malloc_(sizeof(Permutation), "create_permutation_1");
+    Permutation_ptr result = malloc_(sizeof(Permutation));
     int i;
     result->n = n;
-    result->a = malloc_(n * sizeof(int), "create_permutation_2");
+    result->a = malloc_(n * sizeof(int));
     for (i = 0; i < n; i++) {
         result->a[i] = i;
     }

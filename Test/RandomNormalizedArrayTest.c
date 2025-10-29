@@ -3,6 +3,8 @@
 //
 #include <stdlib.h>
 #include <HashMap/HashMap.h>
+#include <Memory/Memory.h>
+
 #include "../src/RandomArray.h"
 #include "stdio.h"
 
@@ -33,6 +35,8 @@ void indexArrayTest() {
 }
 
 int main() {
+    start_memory_check();
     normalizedArrayTest();
     indexArrayTest();
+    end_memory_check();
 }

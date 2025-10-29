@@ -8,7 +8,7 @@
 #include "Tuple.h"
 
 Interval_ptr create_interval() {
-    Interval_ptr result = malloc_(sizeof(Interval), "create_interval");
+    Interval_ptr result = malloc_(sizeof(Interval));
     result->list = create_array_list();
     return result;
 }

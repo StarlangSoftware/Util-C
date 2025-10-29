@@ -14,7 +14,7 @@
  * @param last  integer input.
  */
 Tuple_ptr create_tuple(int first, int last) {
-    Tuple_ptr result = malloc_(sizeof(Tuple), "create_tuple");
+    Tuple_ptr result = malloc_(sizeof(Tuple));
     result->first = first;
     result->last = last;
     return result;

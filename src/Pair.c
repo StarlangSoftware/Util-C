@@ -7,7 +7,7 @@
 #include "StringUtils.h"
 
 Pair_ptr create_pair(char *first, char *second) {
-    Pair_ptr result = malloc_(sizeof(Pair), "create_pair");
+    Pair_ptr result = malloc_(sizeof(Pair));
     result->first = str_copy(result->first, first);
     result->second = str_copy(result->second, second);
     return result;

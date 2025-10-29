@@ -2,6 +2,8 @@
 // Created by Olcay Taner YILDIZ on 29.01.2023.
 //
 
+#include <Memory/Memory.h>
+
 #include "../src/SubsetFromList.h"
 #include "stdio.h"
 
@@ -78,7 +80,9 @@ void next3() {
 }
 
 int main(){
+    start_memory_check();
     next1();
     next2();
     next3();
+    end_memory_check();
 }

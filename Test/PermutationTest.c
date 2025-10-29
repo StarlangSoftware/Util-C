@@ -1,6 +1,8 @@
 //
 // Created by Olcay Taner YILDIZ on 28.01.2023.
 //
+#include <Memory/Memory.h>
+
 #include "../src/Permutation.h"
 #include "stdio.h"
 
@@ -59,6 +61,8 @@ void next2() {
 }
 
 int main() {
+    start_memory_check();
     next1();
     next2();
+    end_memory_check();
 }

@@ -74,6 +74,7 @@ void test_split3(){
 }
 
 int main() {
+    start_memory_check();
     test_uppercase();
     test_lowercase();
     test_concat();
@@ -81,4 +82,5 @@ int main() {
     test_split1();
     test_split2();
     test_split3();
+    end_memory_check();
 }

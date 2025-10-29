@@ -18,12 +18,12 @@
  * @param element_count integer input element count.
  */
 Subset_from_list_ptr create_subset_from_list(int *list, int list_size, int element_count) {
-    Subset_from_list_ptr result = malloc_(sizeof(Subset_from_list), "create_subset_from_list_1");
+    Subset_from_list_ptr result = malloc_(sizeof(Subset_from_list));
     result->element_list = list;
     result->element_count = element_count;
     result->list_size = list_size;
-    result->set = malloc_(element_count * sizeof(int), "create_subset_from_list_2");
-    result->index_list = malloc_(element_count * sizeof(int), "create_subset_from_list_3");
+    result->set = malloc_(element_count * sizeof(int));
+    result->index_list = malloc_(element_count * sizeof(int));
     for (int i = 0; i < element_count; i++) {
         result->index_list[i] = i;
         result->set[i] = result->element_list[result->index_list[i]];
