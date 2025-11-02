@@ -8,6 +8,8 @@
 #include <Memory/Memory.h>
 #include "StringUtils.h"
 
+#include <stdio.h>
+
 char *str_copy(char *dst, const char *src) {
     if (src == NULL){
         return NULL;
@@ -206,7 +208,9 @@ bool str_contains(const char *large, const char *small) {
  * @return true if char is found, false otherwise.
  */
 bool str_contains_c(const char *s, char ch) {
-    return strstr(s, &ch) != NULL;
+    char tmp[2];
+    sprintf(tmp, "%c", ch);
+    return strstr(s, tmp) != NULL;
 }
 
 bool string_equals(const String* s1, const String* s2) {

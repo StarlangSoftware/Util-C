@@ -73,8 +73,18 @@ void test_split3(){
     free_array_list(items, free_);
 }
 
+void test_contains() {
+    if (str_contains_c("kitap+", '+') == false) {
+        printf("Error in str_contains_c");
+    };
+    if (str_contains_c("+kitap", '+') == false) {
+        printf("Error in str_contains_c");
+    };
+}
+
 int main() {
     start_memory_check();
+    test_contains();
     test_uppercase();
     test_lowercase();
     test_concat();
